@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Zero2 2</title>
+    <link rel="icon" type="image/png" href="/static/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/mystyles.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="/static/boogi_script.js"></script>
+
+</head>
+<body>  
+      <div class="row">
+       <div class="col-sm-1">
+       </div>
+       <div class="col-sm-7">
+        <div class="camContainer">
+        <h1>Streaming</h1>
+        <span id="rntime" class="rnt"></span>
+        <br>
+        <div class="innerCam">
+        <img src="{{'cam'}}">
+        </div>
+        <button id="StartR" type="button" title="record video file" onclick=" window.open('/startRec.html', 'infstate'); return false;" class="btn_source">Start</button>
+        <br>
+        <br>
+        <button id="StopR" type="button" title="record video file" onclick=" window.open('/stopRec.html', 'infstate'); return false;" class="btn_sourced">Stop</button>
+        <br>
+        <br>
+        <button id="Snap" type="button" title="take jpg file" onclick=" window.open('/snap.html', 'infstate'); return false;" class="btn_source">Snap</button>
+        <br>
+        <br>
+        <button id="Sound" type="button" title="record wav file" onclick=" window.open('/srecord.html', 'infstate'); return false;" class="btn_source">Sound</button>
+        </div>
+       </div>
+        
+        <div class="col-sm-3">
+        <div class="infoContainer">
+        <h3>Info</h3>
+        <div class="innerInfo">
+        <iframe src="info.html" width="300" height="220" style="border:none;" name="infstate"></iframe>
+        </div>
+        </div>
+       </div>
+      </div>
+<script>     
+   window.onload = function timeNow() {
+    
+  rntime = getTimeNow();
+
+  document.getElementById("rntime").innerHTML = rntime
+
+  setTimeout(timeNow,1000);
+
+  }
+  
+</script>
+
+</body>
+</html>
