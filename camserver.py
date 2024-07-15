@@ -24,7 +24,7 @@ output = CircularOutput()
 class Camera:
     def __init__(self):
         self.camera = picamera2.Picamera2()
-        self.camera.configure(self.camera.create_video_configuration(main={"size": (800, 600)}))
+        self.camera.configure(self.camera.create_video_configuration(main={"size": (640, 480)}))
         self.still_config = self.camera.create_still_configuration()
         self.encoder = MJPEGEncoder(10000000)
         self.streamOut = StreamingOutput()
@@ -70,6 +70,7 @@ def genFrames():
         frame = camera.get_frame()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
             
 #defines the route that will access the video feed and call the feed function
 class VideoFeed(Resource):
