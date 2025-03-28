@@ -132,7 +132,7 @@ def srecord():
     timestamp = datetime.now().isoformat("_","seconds")
     print(timestamp)
     subprocess.Popen('arecord -D dmic_sv -d 30 -f S32_LE /home/allzero22/Webserver/webcam/static/sound/birdcam_$(date "+%b-%d-%y-%I:%M:%S-%p").wav -c 2', shell=True)
-    #subprocess.Popen('XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/bin/arecord -D dmic_sv -d 180 -f S32_LE /home/allzero22/Webserver/webcam/static/sound/birdcam_$(date "+%b-%d-%y-%I:%M:%S-%p").wav -c 2', shell=True)
+    #subprocess.Popen('arecord -D dmic_sv -d 180 -f -r 48000 S32_LE /home/allzero22/Webserver/webcam/static/sound/birdcam_$(date "+%b-%d-%y-%I:%M:%S-%p").wav -c 2', shell=True)
     #dmic_sv driver gives better results. Install Pulse Audio "sudo apt-get install pulseaudio pavucontrol paprefs"
     # start server using systemd add - [Unit]After=sound.target and [Service]Type=idle User=Pi or you're user name! to the service and all should work check your permissions are all ok by checking journalctl of your service.
     
